@@ -1,12 +1,21 @@
-// import Mole from './Mole'
+import {useEffect} from 'react'
+import moleImg from './mole.png'
 
-function Mole(props){
-    return (
-        <div>
-            <h2> Mole </h2>
-            <Mole />
-        </div>
-    )
-}
+const Mole = (props) => {
 
-export default Mole
+    useEffect(() => {
+        let randSeconds = Math.ceil(Math.random() * 10000)
+        let timer = setTimeout(() => {
+            props.setDisplayMole(false)
+        }, randSeconds)
+        return () => clearTimeout (timer)
+    })
+        return (
+            <div>
+                <button onClick={props.handleClick}>Mole</button>
+                <img style={{'width': '30vw'}} src={moleImg} onClick={props.handleClick} />
+            </div>
+        )
+    }
+
+    export default Mole
