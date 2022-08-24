@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Mole from './Mole'
 import EmptySlot from './EmptySlot'
+
+
 const MoleContainer = (props) => {
     let [theMole, setTheMole] = useState(false)
     const handleClick = (e) => {
